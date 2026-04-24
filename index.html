@@ -31,11 +31,11 @@
         <li><a href="#">Contact</a></li>
       </ul>
     </nav>
-    
+
     <div class="icon-cart">
       <div class="cart-container">
         <span class="cart-count" id="cart-count">0</span>
-        <img class="cart" src="./images/icon-cart.svg" alt="icon for cart" width="20" height="20">
+        <img class="icon-cart" src="./images/icon-cart.svg" alt="icon for cart" width="20" height="20">
       </div>
       <img class="avatar" src="./images/image-avatar.png" alt="image for admin" width="24" height="24">
     </div>
@@ -44,6 +44,26 @@
 
   <main class="app-container">
     <div class="image-container">
+
+      <div class="basket-container" id="basket-container">
+        <h2 class="heading-cart">Cart</h2>
+        <div class="empty-cart" id="empty-cart">
+          <p>Your cart is empty.</p>
+        </div>
+
+        <div class="basket-filled" id="basket-filled">
+          <div class="product-info-cart">
+            <img class="img-cart" src="./images/image-product-1-thumbnail.jpg" alt="image of the product" width="50" height="50">
+            <div class="product-name">
+              <p>Fall Limited Edition Sneakers</p>
+              <p class="p-price-cart">$125.00 x <span id="count-cart">0</span> <span class="total-price">$0.00</span></p>
+            </div>
+            <button id="delete-btn"><img src="./images/icon-delete.svg" alt="Delete icon"></button>
+          </div>
+          <button class="checkout-btn">Checkout</button>
+        </div>
+
+      </div>
 
       <div class="product-image">
         <img class="img-hero" src="./images/image-product-1.jpg" alt="image of the product" width="375" height="375">

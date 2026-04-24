@@ -156,6 +156,146 @@ body {
 
 }
 
+.image-container {
+    position: relative;
+}
+
+.image-container .basket-container {
+    position: absolute;
+    inset: 8px 8px 3rem 8px;
+    width: 95%;
+    height: 85%;
+    background-color: var(--white);
+    padding-inline: 2rem;
+    padding-block-start: 2rem;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.basket-container {
+    display: none;
+}
+
+.basket-container .heading-cart {
+    color: var(--dark-blue);
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding-block-end: 1rem;
+    border-block-end: 1px solid var(--rayish-blue);
+}
+
+.basket-container .empty-cart {
+    width: 100%;
+    padding-block: 3rem;
+    text-align: center;
+    display: none;
+}
+
+.basket-container .empty-cart p {
+    color: var(--dark-grayish-blue);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.basket-filled {
+    display: none;
+}
+
+.basket-filled .product-info-cart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 1rem;
+    padding-block: 1rem;
+}
+
+.basket-filled .product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    column-gap: 1rem;
+}
+
+
+.basket-filled .img-cart {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.basket-filled .product-info .product-name {
+    color: var(--dark-blue);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.product-name p:first-child {
+    font-size: .9rem;
+    color: var(--dark-grayish-blue);
+    margin-block-end: .5rem;
+}
+
+.basket-filled .product-info .product-price {
+    color: var(--dark-grayish-blue);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.basket-filled .delete-btn {
+    background-color: transparent;
+    border: none;
+    color: var(--dark-grayish-blue);
+}
+
+.basket-filled .delete-btn:hover {
+    color: var(--orange);
+    cursor: pointer;
+}
+
+.basket-filled .delete-btn:active {
+    color: var(--dark-grayish-blue);
+}
+
+.basket-filled .delete-btn:focus {
+    outline: 2px solid var(--orange);
+}
+
+.basket-filled .total-price {
+    color: var(--dark-blue);
+    font-weight: 700;
+}
+
+.basket-filled .p-price-cart {
+    color: var(--dark-grayish-blue);
+    font-weight: 700;
+}
+
+.basket-filled .checkout-btn {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    background-color: var(--orange);
+    color: var(--dark-blue);
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    margin-block-start: 1rem;
+}
+
+.basket-filled .checkout-btn:hover {
+    background-color: var(--pale-orange);
+    cursor: pointer;
+}
+
+.basket-filled .checkout-btn:active {
+    background-color: var(--orange);
+}
+
+.basket-filled .checkout-btn:focus {
+    outline: 2px solid var(--orange);
+}
+
 .prev-btn {
     position: absolute;
     top: 30%;
