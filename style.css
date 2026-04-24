@@ -144,11 +144,11 @@ body {
     cursor: pointer;
 }
 
-.product-image {
+.gallery-img-hero {
     margin-block-end: 1.5rem;
 }
 
-.product-image .img-hero {
+.gallery-img-hero .img-hero {
     width: 100%;
     height: 320px;
     object-fit: cover;
@@ -180,7 +180,7 @@ body {
 .next-btn {
     position: absolute;
     top: 50%;
-    left: 90%;
+    right: 2%;
     transform: translate(-50%, -50%);
     background-color: var(--white);
     border: none;
@@ -512,7 +512,7 @@ body {
 
     }
 
-    .product-image .img-hero {
+    .gallery-img-hero .img-hero {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -552,8 +552,7 @@ body {
 
     .prev-btn,
     .next-btn {
-        display: block;
-        opacity: 0;
+        display: none;
     }
 
     .image-container {

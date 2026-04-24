@@ -16,6 +16,8 @@ const basketFilled = document.querySelector('.basket-filled');
 const deleteBtn = document.getElementById('delete-btn');
 const countCartSpan = document.getElementById('count-cart');
 const totalPriceSpan = document.querySelector('.total-price');
+const productImages = document.querySelectorAll('.product-image');
+const galleryImg = document.querySelector('.gallery-img-hero');
 const gallery = document.querySelector('.gallery');
 const thumbnails = document.querySelectorAll('.gallery img');
 
@@ -102,8 +104,34 @@ thumbnails.forEach(thumbnail => {
   });
 });
 
-gallery.addEventListener('click', (event) => {
-  if (event.target === gallery) {
-    gallery.style.display = 'none';
+galleryImg.addEventListener('click', () => {
+  if (window.innerWidth >= 1024) {
+    galleryImg.style.display = 'block';
+    galleryImg.style.position = 'absolute';
+    galleryImg.style.inset = '0 25% 25% 30%';
+    galleryImg.style.zIndex = '1000';
+    prevBtn.style.display = 'block';
+    nextBtn.style.display = 'block';
+    prevBtn.style.left = '-8px';
+    prevBtn.style.width = '48px';
+    prevBtn.style.height = '48px';
+    prevBtn.style.border = '1px solid var(--dark-grayish-blue)';
+    nextBtn.style.right = '-50px';
+    nextBtn.style.width = '48px';
+    nextBtn.style.height = '48px';
+    nextBtn.style.border = '1px solid var(--dark-grayish-blue)';
   }
 });
+
+gallery.addEventListener('click', (event) => {
+  if (event.target === gallery) {
+    galleryImg.style.display = 'none';
+    prevBtn.style.display = 'none';
+    nextBtn.style.display = 'none';
+  }
+});
+
+
+
+
+
