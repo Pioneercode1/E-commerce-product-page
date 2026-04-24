@@ -16,7 +16,8 @@ const basketFilled = document.querySelector('.basket-filled');
 const deleteBtn = document.getElementById('delete-btn');
 const countCartSpan = document.getElementById('count-cart');
 const totalPriceSpan = document.querySelector('.total-price');
-
+const gallery = document.querySelector('.gallery');
+const thumbnails = document.querySelectorAll('.gallery img');
 
 
 barsIcon.addEventListener('click', () => {
@@ -94,7 +95,15 @@ window.addEventListener('click', (event) => {
 
 });
 
+thumbnails.forEach(thumbnail => {
+  thumbnail.addEventListener('click', () => {
+    const newSrc = thumbnail.getAttribute('src').replace('-thumbnail', '');
+    imgHero.setAttribute('src', newSrc);
+  });
+});
 
-
-
-
+gallery.addEventListener('click', (event) => {
+  if (event.target === gallery) {
+    gallery.style.display = 'none';
+  }
+});
