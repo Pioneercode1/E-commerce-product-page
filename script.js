@@ -104,8 +104,8 @@ thumbnails.forEach(thumbnail => {
   });
 });
 
-galleryImg.addEventListener('click', () => {
-  if (window.innerWidth >= 1024) {
+/*galleryImg.addEventListener('click', () => {
+  if (window.innerWidth >= 1440) {
     galleryImg.style.display = 'block';
     galleryImg.style.position = 'absolute';
     galleryImg.style.inset = '0 25% 25% 30%';
@@ -121,15 +121,8 @@ galleryImg.addEventListener('click', () => {
     nextBtn.style.height = '48px';
     nextBtn.style.border = '1px solid var(--dark-grayish-blue)';
   }
-});
+});*/
 
-gallery.addEventListener('click', (event) => {
-  if (event.target === gallery) {
-    galleryImg.style.display = 'none';
-    prevBtn.style.display = 'none';
-    nextBtn.style.display = 'none';
-  }
-});
 
 
 
