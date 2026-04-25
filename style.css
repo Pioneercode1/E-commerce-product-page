@@ -602,6 +602,7 @@ body {
 
     .product-description {
         font-size: 1rem;
+        max-width: 70%;
     }
 
     .add-to-cart-container {
