@@ -522,7 +522,7 @@ body {
     }
 
     .gallery-img-hero {
-        height: 500px;
+        height: 450px;
     }
 
     .gallery-img-hero .img-hero {
@@ -578,6 +578,7 @@ body {
     .product-container {
         width: 100%;
         margin-block-start: 3rem;
+        justify-content: flex-start;
     }
 
     .product-details h1 {
@@ -585,12 +586,12 @@ body {
     }
 
     .product-details .h2-product {
-        font-size: 3rem;
+        font-size: 2.8rem;
         margin-block-end: 2rem;
     }
 
     .product-description {
-        font-size: 1.125rem;
+        font-size: 1rem;
     }
 
     .add-to-cart-container {
@@ -613,11 +614,11 @@ body {
     .product-price {
         flex-direction: column;
         align-items: flex-start;
-        row-gap: 2rem;
+        row-gap: 1rem;
     }
 
     .original-price {
-        margin-block-end: 2rem;
+        margin-block-end: 1rem;
     }
 
     /*styles for cart*/
