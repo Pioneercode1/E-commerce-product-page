@@ -17,6 +17,8 @@
     /*Design Widths*/
     --mobile: 375px;
     --desktop: 1440px;
+    --taplet: 768px;
+    --pc: 1024px;
 }
 
 * {
@@ -457,6 +459,14 @@ body {
     cursor: pointer;
 }
 
+
+@media (min-width: 768px) {
+    .app-container {
+        width: var(--taplet);
+    }
+
+}
+
 @media (min-width: 1440px) {
 
 
@@ -645,4 +655,88 @@ body {
         font-size: 1.3rem !important;
         margin-block-start: 2rem !important;
     }
+}
+
+/*Global styles for gallery section*/
+
+.gallery-section {
+    position: fixed;
+    inset: 5% 10%;
+    max-width: var(--pc);
+    padding: 2rem;
+    display: none;
+    place-items: center;
+    z-index: 900;
+
+}
+
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem;
+    background: var(--white);
+    border: 2px solid var(--orange);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.prev-button {
+    position: absolute;
+    top: 50%;
+    left: 4PX;
+    padding: 1rem;
+    transform: translate(-50%);
+    background: var(--white);
+    border: 2px solid var(--orange);
+    cursor: pointer;
+}
+
+.next-button {
+    position: absolute;
+    top: 50%;
+    right: -3rem;
+    padding: 1rem;
+    transform: translate(-50%);
+    background: var(--white);
+    border: 2px solid var(--orange);
+    cursor: pointer;
+}
+
+.gallery-image-hero .image-hero {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.gallery-filled {
+    display: flex;
+    justify-content: space-between;
+    margin-block-start: 1rem;
+    width: 100%;
+}
+
+.gallery-filled img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.gallery-filled .gallery-img-filled:hover {
+    outline: 1px solid var(--orange);
+    outline-offset: 2px;
+    cursor: pointer;
+}
+
+.gallery-filled .gallery-img-filled:active {
+    outline: 1px solid var(--orange);
+    outline-offset: 2px;
+}
+
+.gallery-filled .gallery-img-filled:focus {
+    outline: 1px solid var(--orange);
+    outline-offset: 2px;
 }
