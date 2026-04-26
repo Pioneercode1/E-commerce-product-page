@@ -605,12 +605,25 @@ body {
         max-width: 70%;
     }
 
+    .product-price .current-price {
+        font-size: 1.6rem;
+    }
+
+    .product-price .discount {
+        font-size: 1rem;
+    }
+
     .add-to-cart-container {
         justify-content: flex-start;
         align-items: flex-start;
         flex-direction: row;
         margin-block-start: 1rem;
         margin-inline-end: 1rem;
+        width: 75%;
+    }
+
+    .count-product {
+        width: 70%;
     }
 
     .count-product img {
