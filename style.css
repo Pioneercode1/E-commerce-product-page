@@ -46,6 +46,13 @@ body {
 
 }
 
+.app-container[inert], .header[inert] {
+    pointer-events: none;
+    user-select: none;
+    filter: blur(2px);
+    opacity: 0.5;
+}
+
 .header {
     display: flex;
     align-items: center;

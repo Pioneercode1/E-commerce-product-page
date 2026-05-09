@@ -113,20 +113,29 @@ thumbnails.forEach(thumbnail => {
 
 /*gallery Section*/
 
+const appContainer = document.querySelector('.app-container');
+const appHeader = document.querySelector('.header');
+
 imgHero.addEventListener('click', () => {
   if (window.innerWidth >= 1440) {
     gallerySection.style.display = 'grid';
     galleryImageHero.querySelector('img').src = imgHero.getAttribute('src');
+    appContainer.setAttribute('inert', '');
+    appHeader.setAttribute('inert', '');
   }
 });
 
 closeButton.addEventListener('click', () => {
   gallerySection.style.display = 'none';
+  appContainer.removeAttribute('inert');
+  appHeader.removeAttribute('inert');
 });
 
 window.addEventListener('click', (event) => {
   if (gallerySection.style.display === 'grid' && !gallerySection.contains(event.target) && event.target !== imgHero) {
     gallerySection.style.display = 'none';
+    appContainer.removeAttribute('inert');
+    appHeader.removeAttribute('inert');
   }
 });
 
