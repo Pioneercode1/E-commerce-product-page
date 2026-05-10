@@ -116,6 +116,7 @@ thumbnails.forEach(thumbnail => {
 const appContainer = document.querySelector('.app-container');
 const appHeader = document.querySelector('.header');
 
+/*
 imgHero.addEventListener('click', () => {
   if (window.innerWidth >= 1440) {
     gallerySection.style.display = 'grid';
@@ -123,6 +124,77 @@ imgHero.addEventListener('click', () => {
     appContainer.setAttribute('inert', '');
     appHeader.setAttribute('inert', '');
   }
+});
+
+galleryImages.forEach((img, index) => {
+  img.addEventListener('click', () => {
+    galleryImageHero.querySelector('img').src = `./images/image-product-${index + 1}.jpg`;
+  });
+});
+
+prevButton.addEventListener('click', () => {
+  const currentSrc = galleryImageHero.querySelector('img').src;
+  const currentIndex = parseInt(currentSrc.match(/image-product-(\d+)\.jpg/)[1]);
+  //const prevIndex = (currentIndex - 2 + galleryImages.length) % galleryImages.length + 1;
+  if (currentIndex > 1) {
+    const prevIndex = currentIndex - 1;
+    galleryImageHero.querySelector('img').src = `./images/image-product-${prevIndex}.jpg`;
+  }
+});
+
+nextButton.addEventListener('click', () => {
+  const currentSrc = galleryImageHero.querySelector('img').src;
+  const currentIndex = parseInt(currentSrc.match(/image-product-(\d+)\.jpg/)[1]);
+  //const nextIndex = currentIndex % galleryImages.length + 1;
+  if (currentIndex < galleryImages.length) {
+    const nextIndex = currentIndex + 1;
+    galleryImageHero.querySelector('img').src = `./images/image-product-${nextIndex}.jpg`;
+  }
+  
+});*/
+
+let currentImageIndex = 1;
+const totalImages = galleryImages.length;
+
+const updateHeroImage = (index) => {
+    currentImageIndex = index;
+    galleryImageHero.querySelector('img').src = `./images/image-product-${currentImageIndex}.jpg`;
+    galleryImages.forEach((img, i) => {
+        img.classList.toggle('active', i + 1 === currentImageIndex);
+    });
+};
+
+galleryImages.forEach((img, index) => {
+    img.addEventListener('click', () => {
+        updateHeroImage(index + 1);
+    });
+});
+
+nextButton.addEventListener('click', () => {
+    if (currentImageIndex < totalImages) {
+        updateHeroImage(currentImageIndex + 1);
+    } else {
+        updateHeroImage(1);
+    }
+});
+
+prevButton.addEventListener('click', () => {
+    if (currentImageIndex > 1) {
+        updateHeroImage(currentImageIndex - 1);
+    } else {
+        updateHeroImage(totalImages);
+    }
+});
+
+imgHero.addEventListener('click', () => {
+    if (window.innerWidth >= 1440) {
+        gallerySection.style.display = 'grid';
+        const src = imgHero.getAttribute('src');
+        const match = src.match(/image-product-(\d+)/);
+        if (match) updateHeroImage(parseInt(match[1]));
+        appContainer.setAttribute('inert', '');
+        appHeader.setAttribute('inert', '');
+    }
 });
 
 closeButton.addEventListener('click', () => {
@@ -137,25 +209,5 @@ window.addEventListener('click', (event) => {
     appContainer.removeAttribute('inert');
     appHeader.removeAttribute('inert');
   }
-});
-
-galleryImages.forEach((img, index) => {
-  img.addEventListener('click', () => {
-    galleryImageHero.querySelector('img').src = `./images/image-product-${index + 1}.jpg`;
-  });
-});
-
-prevButton.addEventListener('click', () => {
-  const currentSrc = galleryImageHero.querySelector('img').src;
-  const currentIndex = parseInt(currentSrc.match(/image-product-(\d)\.jpg/)[1]);
-  const prevIndex = (currentIndex - 2 + galleryImages.length) % galleryImages.length + 1;
-  galleryImageHero.querySelector('img').src = `./images/image-product-${prevIndex}.jpg`;
-});
-
-nextButton.addEventListener('click', () => {
-  const currentSrc = galleryImageHero.querySelector('img').src;
-  const currentIndex = parseInt(currentSrc.match(/image-product-(\d)\.jpg/)[1]);
-  const nextIndex = currentIndex % galleryImages.length + 1;
-  galleryImageHero.querySelector('img').src = `./images/image-product-${nextIndex}.jpg`;
 });
 
