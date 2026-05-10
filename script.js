@@ -153,6 +153,7 @@ imgHero.addEventListener('click', () => {
         if (match) updateHeroImage(parseInt(match[1]));
         appContainer.setAttribute('inert', '');
         appHeader.setAttribute('inert', '');
+        document.body.style.overflow = 'hidden';
     }
 });
 
@@ -160,6 +161,7 @@ closeButton.addEventListener('click', () => {
   gallerySection.style.display = 'none';
   appContainer.removeAttribute('inert');
   appHeader.removeAttribute('inert');
+  document.body.style.overflow = 'auto';
 });
 
 window.addEventListener('click', (event) => {
@@ -167,6 +169,27 @@ window.addEventListener('click', (event) => {
     gallerySection.style.display = 'none';
     appContainer.removeAttribute('inert');
     appHeader.removeAttribute('inert');
+    document.body.style.overflow = 'auto';
   }
 });
 
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && gallerySection.style.display === 'grid') {
+    gallerySection.style.display = 'none';
+    appContainer.removeAttribute('inert');
+    appHeader.removeAttribute('inert');
+    document.body.style.overflow = 'auto';
+  }
+});
+
+
+thumbnails.forEach((thumbnail) => {
+  thumbnail.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      const newSrc = thumbnail
+        .getAttribute('src')
+        .replace('-thumbnail', '');
+      imgHero.setAttribute('src', newSrc);
+    }
+  });
+});
