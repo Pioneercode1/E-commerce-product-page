@@ -89,6 +89,14 @@ showCart.addEventListener('click', () => {
   }
 });
 
+window.addEventListener('click', (event) => {
+  const clickedInsideMenu = menu.contains(event.target);
+  const clickedMenuButton = barsIcon.contains(event.target);
+  if (menu.classList.contains('active') && !clickedInsideMenu && !clickedMenuButton) {
+    menu.classList.remove('active');
+  }
+});
+
 deleteBtn.addEventListener('click', () => {
   count = 0;
   countSpan.textContent = count;
@@ -119,42 +127,42 @@ let currentImageIndex = 1;
 const totalImages = galleryImages.length;
 
 const updateHeroImage = (index) => {
-    currentImageIndex = index;
-    galleryImageHero.querySelector('img').src = `./images/image-product-${currentImageIndex}.jpg`;
+  currentImageIndex = index;
+  galleryImageHero.querySelector('img').src = `./images/image-product-${currentImageIndex}.jpg`;
 };
 
 galleryImages.forEach((img, index) => {
-    img.addEventListener('click', () => {
-        updateHeroImage(index + 1);
-    });
+  img.addEventListener('click', () => {
+    updateHeroImage(index + 1);
+  });
 });
 
 nextButton.addEventListener('click', () => {
-    if (currentImageIndex < totalImages) {
-        updateHeroImage(currentImageIndex + 1);
-    } else {
-        updateHeroImage(1);
-    }
+  if (currentImageIndex < totalImages) {
+    updateHeroImage(currentImageIndex + 1);
+  } else {
+    updateHeroImage(1);
+  }
 });
 
 prevButton.addEventListener('click', () => {
-    if (currentImageIndex > 1) {
-        updateHeroImage(currentImageIndex - 1);
-    } else {
-        updateHeroImage(totalImages);
-    }
+  if (currentImageIndex > 1) {
+    updateHeroImage(currentImageIndex - 1);
+  } else {
+    updateHeroImage(totalImages);
+  }
 });
 
 imgHero.addEventListener('click', () => {
-    if (window.innerWidth >= 1440) {
-        gallerySection.style.display = 'grid';
-        const src = imgHero.getAttribute('src');
-        const match = src.match(/image-product-(\d+)/);
-        if (match) updateHeroImage(parseInt(match[1]));
-        appContainer.setAttribute('inert', '');
-        appHeader.setAttribute('inert', '');
-        document.body.style.overflow = 'hidden';
-    }
+  if (window.innerWidth >= 1440) {
+    gallerySection.style.display = 'grid';
+    const src = imgHero.getAttribute('src');
+    const match = src.match(/image-product-(\d+)/);
+    if (match) updateHeroImage(parseInt(match[1]));
+    appContainer.setAttribute('inert', '');
+    appHeader.setAttribute('inert', '');
+    document.body.style.overflow = 'hidden';
+  }
 });
 
 closeButton.addEventListener('click', () => {
